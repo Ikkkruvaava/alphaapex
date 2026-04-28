@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -34,7 +35,7 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-[var(--z-sticky)]"
         style={{
           background: scrolled
-            ? "rgba(11, 28, 45, 0.85)"
+            ? "color-mix(in srgb, var(--bg-primary) 85%, transparent)"
             : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
           borderBottom: scrolled
@@ -69,8 +70,9 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA & Theme Toggle */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Button
               variant="primary"
               size="sm"
@@ -100,7 +102,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[calc(var(--z-sticky)-1)] md:hidden"
-            style={{ background: "rgba(11, 28, 45, 0.96)", backdropFilter: "blur(20px)" }}
+            style={{ background: "color-mix(in srgb, var(--bg-primary) 96%, transparent)", backdropFilter: "blur(20px)" }}
           >
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {navLinks.map((link, i) => (
@@ -122,13 +124,16 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <Button
-                  variant="primary"
-                  icon={<ArrowUpRight size={18} />}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Book a Call
-                </Button>
+                <div className="flex gap-4">
+                  <ThemeToggle />
+                  <Button
+                    variant="primary"
+                    icon={<ArrowUpRight size={18} />}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Book a Call
+                  </Button>
+                </div>
               </motion.div>
             </div>
           </motion.div>
