@@ -1,131 +1,62 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
-const footerLinks = {
-  company: [
-    { label: "About Us", href: "#" },
-    { label: "Leadership", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
-  ],
-  services: [
-    { label: "Strategic Advisory", href: "#" },
-    { label: "Governance", href: "#" },
-    { label: "Digital Transformation", href: "#" },
-    { label: "Performance", href: "#" },
-  ],
-  resources: [
-    { label: "Case Studies", href: "#" },
-    { label: "Insights", href: "#" },
-    { label: "Whitepapers", href: "#" },
-    { label: "Events", href: "#" },
-  ],
-};
-
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer
-      className="relative"
-      style={{
-        background: "var(--bg-secondary)",
-        borderTop: "1px solid var(--border-default)",
-      }}
-    >
-      <div className="container-main section-padding">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="mb-5">
-              <Logo size={34} showTagline />
-            </div>
-            <p
-              className="text-body max-w-sm mb-6"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              We guide organizations to their highest point of performance
-              through strategy, clarity, and execution discipline.
+    <footer className="py-20 border-t border-white/5 bg-black">
+      <div className="container-main">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          <div className="col-span-1 md:col-span-2">
+            <Logo />
+            <p className="mt-6 text-[var(--text-secondary)] text-sm max-w-sm leading-relaxed">
+              Alpha Apex Advisory Group provides strategic advisory, governance, and long-term growth solutions for enterprise organizations worldwide.
             </p>
-            <a
-              href="#"
-              className="btn btn-secondary btn-sm inline-flex"
-            >
-              Get in Touch
-              <ArrowUpRight size={14} />
-            </a>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-medium text-sm mb-6 uppercase tracking-wider">Solutions</h4>
+            <ul className="space-y-4">
+              {["Strategic Advisory", "Digital Transformation", "Leadership & Governance", "Innovation Labs"].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-sm text-[var(--text-tertiary)] hover:text-white transition-colors">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4
-                className="font-semibold text-sm uppercase tracking-wider mb-4"
-                style={{ color: "var(--text-primary)" }}
-              >
-                {category}
-              </h4>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm transition-colors duration-200"
-                      style={{ color: "var(--text-tertiary)" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "var(--accent)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color =
-                          "var(--text-tertiary)")
-                      }
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 className="text-white font-medium text-sm mb-6 uppercase tracking-wider">Company</h4>
+            <ul className="space-y-4">
+              {["About Us", "Case Studies", "Contact", "Privacy Policy"].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-sm text-[var(--text-tertiary)] hover:text-white transition-colors">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Divider */}
-        <hr className="divider mb-8" />
-
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-caption" style={{ color: "var(--text-muted)" }}>
-            © {new Date().getFullYear()} Alpha Apex Advisory Group. All rights
-            reserved.
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[var(--text-tertiary)] text-xs uppercase tracking-widest">
+            © {currentYear} Alpha Apex Advisory Group. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-caption transition-colors duration-200"
-              style={{ color: "var(--text-muted)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--text-secondary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--text-muted)")
-              }
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-caption transition-colors duration-200"
-              style={{ color: "var(--text-muted)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--text-secondary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--text-muted)")
-              }
-            >
-              Terms of Service
-            </a>
+          <div className="flex gap-8">
+            {["Twitter", "LinkedIn", "Instagram"].map((social) => (
+              <a
+                key={social}
+                href="#"
+                className="text-xs uppercase tracking-widest text-[var(--text-tertiary)] hover:text-white transition-colors"
+              >
+                {social}
+              </a>
+            ))}
           </div>
         </div>
       </div>

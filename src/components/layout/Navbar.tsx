@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -15,130 +14,96 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+  React.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-[var(--z-sticky)]"
-        style={{
-          background: scrolled
-            ? "color-mix(in srgb, var(--bg-primary) 85%, transparent)"
-            : "transparent",
-          backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-          borderBottom: scrolled
-            ? "1px solid var(--border-subtle)"
-            : "1px solid transparent",
-          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-      >
-        <nav className="container-main flex items-center justify-between h-[72px]">
-          {/* Logo */}
-          <Logo size={34} showTagline />
+    <nav
+      className="fixed top-0 left-0 right-0 z-[var(--z-sticky)] transition-all duration-300"
+      style={{
+        background: scrolled
+          ? "rgba(0, 0, 0, 0.8)"
+          : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(255, 255, 255, 0.05)"
+          : "1px solid transparent",
+      }}
+    >
+      <div className="container-main flex items-center justify-between h-20">
+        {/* Logo */}
+        <Logo />
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="btn-ghost text-sm font-medium px-4 py-2 rounded-full transition-all duration-200"
-                style={{ color: "var(--text-secondary)" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--accent)";
-                  e.currentTarget.style.background = "var(--accent-muted)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--text-secondary)";
-                  e.currentTarget.style.background = "transparent";
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Desktop CTA & Theme Toggle */}
-          <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
-            <Button
-              variant="primary"
-              size="sm"
-              icon={<ArrowUpRight size={16} />}
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-[10px] font-bold uppercase tracking-[0.35em] text-[var(--text-secondary)] hover:text-white transition-colors"
             >
-              Book a Call
-            </Button>
-          </div>
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden p-2 rounded-lg"
-            style={{ color: "var(--text-primary)" }}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-full"
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-      </motion.header>
+            Get Started
+          </Button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden text-white p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[calc(var(--z-sticky)-1)] md:hidden"
-            style={{ background: "color-mix(in srgb, var(--bg-primary) 96%, transparent)", backdropFilter: "blur(20px)" }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-x-0 top-20 bg-black border-b border-white/5 md:hidden z-[var(--z-sticky)]"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-6">
-              {navLinks.map((link, i) => (
-                <motion.a
+            <div className="flex flex-col p-6 gap-6">
+              {navLinks.map((link) => (
+                <a
                   key={link.label}
                   href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="text-2xl font-semibold"
-                  style={{ color: "var(--text-primary)" }}
+                  className="text-lg font-medium text-[var(--text-secondary)] hover:text-white transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+              <Button
+                variant="primary"
+                className="w-full"
+                onClick={() => setMobileOpen(false)}
               >
-                <div className="flex gap-4">
-                  <ThemeToggle />
-                  <Button
-                    variant="primary"
-                    icon={<ArrowUpRight size={18} />}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Book a Call
-                  </Button>
-                </div>
-              </motion.div>
+                Get Started
+              </Button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 }

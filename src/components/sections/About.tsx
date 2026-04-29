@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const values = [
@@ -16,8 +16,9 @@ export function About() {
   return (
     <section className="section-padding relative">
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Image composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Left: Typography & Image Composition */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: -30 }}
@@ -25,64 +26,23 @@ export function About() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
           >
-            {/* Main image */}
-            <div
-              className="relative rounded-[var(--radius-2xl)] overflow-hidden"
-              style={{ aspectRatio: "4/3" }}
-            >
+            <div className="relative rounded-[var(--radius-2xl)] overflow-hidden border border-white/5 aspect-[4/3]">
               <Image
                 src="/images/about-team.png"
-                alt="Alpha Apex team collaborating on strategy"
+                alt="Alpha Apex Team"
                 fill
-                className="object-cover"
-                quality={85}
+                className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
               />
-              {/* Subtle overlay */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(145deg, color-mix(in srgb, var(--bg-primary) 10%, transparent) 0%, color-mix(in srgb, var(--bg-primary) 30%, transparent) 100%)",
-                }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent" />
+              
+              <div className="absolute bottom-8 left-8">
+                <div className="font-serif text-5xl text-[var(--accent)] font-light leading-none mb-2">15+</div>
+                <div className="text-xs uppercase tracking-widest text-white/70">Years of Excellence</div>
+              </div>
             </div>
-
-            {/* Floating stat card */}
-            <motion.div
-              className="absolute -bottom-6 -right-4 md:right-6 px-6 py-5 rounded-[var(--radius-xl)] z-10"
-              style={{
-                background: "color-mix(in srgb, var(--bg-primary) 85%, transparent)",
-                backdropFilter: "blur(20px) saturate(180%)",
-                border: "1px solid var(--border-accent)",
-                boxShadow: "var(--shadow-lg)",
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <div
-                className="text-3xl font-bold mb-1"
-                style={{ color: "var(--accent-light)" }}
-              >
-                15+
-              </div>
-              <div
-                className="text-sm font-medium"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Years of Excellence
-              </div>
-            </motion.div>
-
-            {/* Decorative accent line */}
-            <div
-              className="absolute -top-3 -left-3 w-20 h-20 rounded-[var(--radius-xl)]"
-              style={{
-                border: "2px solid var(--border-accent)",
-                opacity: 0.4,
-              }}
-            />
+            
+            {/* Decorative accent */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-[var(--accent)]/30 rounded-tl-[var(--radius-2xl)] -z-10" />
           </motion.div>
 
           {/* Right: Content */}
@@ -92,18 +52,11 @@ export function About() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <p className="text-overline mb-4">About Us</p>
-            <h2
-              className="text-heading mb-5"
-              style={{ color: "var(--text-primary)" }}
-            >
-              We provide structured leadership guidance and measurable
-              transformation
+            <span className="text-overline mb-6 block">Our Approach</span>
+            <h2 className="text-display mb-6">
+              Providing <span className="italic text-[var(--text-secondary)]">measurable transformation</span>
             </h2>
-            <p
-              className="text-body-lg mb-8"
-              style={{ color: "var(--text-secondary)" }}
-            >
+            <p className="text-body text-lg text-[var(--text-secondary)] mb-10 leading-relaxed">
               Alpha Apex Advisory Group is the master corporate brand
               representing strategic advisory, governance, and long-term
               growth solutions. We guide organizations to their highest
@@ -111,36 +64,28 @@ export function About() {
               discipline.
             </p>
 
-            {/* Value propositions */}
-            <ul className="space-y-4 mb-8">
+            <ul className="space-y-4 mb-10">
               {values.map((item, i) => (
                 <motion.li
                   key={item}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                 >
                   <CheckCircle
                     size={20}
-                    className="shrink-0 mt-0.5"
-                    style={{ color: "var(--accent)" }}
+                    className="shrink-0 mt-1 text-[var(--accent)]"
                   />
-                  <span
-                    className="text-sm font-medium"
-                    style={{ color: "var(--text-secondary)" }}
-                  >
+                  <span className="text-white font-medium">
                     {item}
                   </span>
                 </motion.li>
               ))}
             </ul>
-
-            <Button
-              variant="primary"
-              icon={<ArrowUpRight size={16} />}
-            >
+            
+            <Button variant="secondary">
               Learn More About Us
             </Button>
           </motion.div>

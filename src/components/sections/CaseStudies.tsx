@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 
 const caseStudies = [
@@ -44,97 +42,56 @@ const caseStudies = [
 
 export function CaseStudies() {
   return (
-    <section
-      id="case-studies"
-      className="section-padding relative"
-      style={{ background: "var(--bg-secondary)" }}
-    >
-      <div className="container-main">
-        <SectionHeader
-          overline="Case Studies"
-          title="Results that speak volumes"
-          description="Explore how we've helped leading organizations achieve breakthrough results across industries."
-        />
+    <section id="case-studies" className="section-padding relative">
+      <div className="container-main max-w-6xl">
+        <div className="mb-16">
+          <span className="text-overline">Case Studies</span>
+          <h2 className="text-display mt-4 mb-4">
+            Results that speak volumes, <br />
+            <span className="italic text-[var(--text-secondary)]">across every industry</span>
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {caseStudies.map((study, i) => (
             <motion.div
               key={study.title}
-              className="group relative rounded-[var(--radius-2xl)] overflow-hidden cursor-pointer"
-              style={{
-                border: "1px solid var(--surface-glass-border)",
-                background: "var(--gradient-card)",
-              }}
+              className="glass-card overflow-hidden group cursor-pointer flex flex-col h-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -6 }}
             >
-              {/* Image with overlay */}
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <Image
                   src={study.image}
                   alt={study.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
-                {/* Navy gradient overlay */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, color-mix(in srgb, var(--bg-primary) 20%, transparent) 0%, color-mix(in srgb, var(--bg-primary) 90%, transparent) 85%, var(--bg-secondary) 100%)",
-                  }}
-                />
-                {/* Category badge positioned on image */}
-                <div className="absolute top-4 left-4 z-10">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent" />
+                <div className="absolute top-6 left-6">
                   <Badge>{study.category}</Badge>
-                </div>
-                {/* Hover arrow */}
-                <div
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
-                  style={{
-                    background: "var(--accent)",
-                    color: "var(--text-on-accent)",
-                  }}
-                >
-                  <ArrowUpRight size={18} />
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6 pt-3">
-                <h3
-                  className="text-lg font-semibold mb-3 leading-tight"
-                  style={{ color: "var(--text-primary)" }}
-                >
+              <div className="p-8 flex flex-col flex-grow mt-[-20px] relative z-10">
+                <h3 className="text-xl font-serif font-medium text-white mb-4 leading-snug">
                   {study.title}
                 </h3>
-                <p
-                  className="text-sm leading-relaxed mb-5"
-                  style={{ color: "var(--text-secondary)" }}
-                >
+                
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-8 flex-grow">
                   {study.description}
                 </p>
 
                 {/* Metrics */}
-                <div
-                  className="flex gap-6 pt-4"
-                  style={{ borderTop: "1px solid var(--border-default)" }}
-                >
+                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5 mt-auto">
                   {study.metrics.map((metric) => (
                     <div key={metric.label}>
-                      <div
-                        className="text-2xl font-bold"
-                        style={{ color: "var(--accent)" }}
-                      >
+                      <div className="font-serif text-2xl font-medium text-[var(--accent)] mb-1">
                         {metric.value}
                       </div>
-                      <div
-                        className="text-xs font-medium mt-0.5"
-                        style={{ color: "var(--text-tertiary)" }}
-                      >
+                      <div className="text-xs text-[var(--text-tertiary)] uppercase tracking-wider">
                         {metric.label}
                       </div>
                     </div>

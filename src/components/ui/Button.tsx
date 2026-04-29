@@ -1,43 +1,36 @@
-"use client";
-
-import { motion } from "framer-motion";
+import * as React from "react";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
-  children: React.ReactNode;
   icon?: React.ReactNode;
-  href?: string;
 }
 
-export function Button({
-  variant = "primary",
-  size = "md",
-  children,
-  icon,
-  className,
-  ...props
-}: ButtonProps) {
-  const baseClasses = cn(
-    "btn",
-    variant === "primary" && "btn-primary",
-    variant === "secondary" && "btn-secondary",
-    variant === "ghost" && "btn-ghost",
-    size === "lg" && "btn-lg",
-    size === "sm" && "btn-sm",
-    className
-  );
-
-  return (
-    <motion.button
-      className={baseClasses}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      {...(props as Record<string, unknown>)}
-    >
-      {children}
-      {icon && <span className="inline-flex">{icon}</span>}
-    </motion.button>
-  );
-}
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "primary", size = "md", icon, children, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "inline-flex items-center justify-center gap-2 font-semibold tracking-wider uppercase transition-all duration-300 rounded-full",
+          {
+            "bg-[var(--accent)] text-black hover:bg-[var(--accent-hover)]": variant === "primary",
+            "bg-transparent text-white border border-white/10 hover:bg-white/5": variant === "secondary",
+            "bg-transparent text-white/70 hover:text-white": variant === "ghost",
+            "h-10 px-4 text-xs": size === "sm",
+            "h-12 px-6 text-sm": size === "md",
+            "h-14 px-8 text-sm": size === "lg",
+          },
+          className
+        )}
+        {...props}
+      >
+        {children}
+        {icon && <span className="shrink-0">{icon}</span>}
+      </button>
+    );
+  }
+);
+Button.displayName = "Button";
