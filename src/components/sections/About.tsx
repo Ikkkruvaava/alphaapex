@@ -31,6 +31,7 @@ export function About() {
                 src="/images/about-team.png"
                 alt="Alpha Apex Team"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent" />

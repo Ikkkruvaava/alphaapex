@@ -23,6 +23,7 @@ export function Founder() {
                 src="/images/Founder-image.png"
                 alt="Founder of Alpha Group"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
