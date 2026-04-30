@@ -18,14 +18,14 @@ export function TrustBar() {
           Trusted by leading organizations
         </p>
         
-        <div className="relative w-full overflow-hidden" style={{ height: '70px' }}>
+        <div className="relative w-full overflow-hidden" style={{ height: '120px' }}>
           {/* @ts-ignore */}
           <LogoLoop
             logos={imageLogos}
-            speed={60}
+            speed={40}
             direction="left"
-            logoHeight={60}
-            gap={100}
+            logoHeight={100}
+            gap={120}
             hoverSpeed={15}
             scaleOnHover
             fadeOut
