@@ -39,8 +39,8 @@
 
   /* Spacing */
   --container-max: 1200px;
-  --container-padding: 1.5rem;
-  --section-padding: 8rem;
+  --container-padding: 1.25rem;
+  --section-padding: 4rem;
 
   /* Radii - Heavily rounded to match reference */
   --radius-sm: 8px;
@@ -56,6 +56,13 @@
 
   /* Z-index */
   --z-sticky: 100;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+    --section-padding: 8rem;
+  }
 }
 
 /* Light Mode Overrides (Optional/Fallback, design is heavily dark-focused) */
@@ -125,27 +132,27 @@ body {
 
 .text-hero {
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 500;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
 .text-display {
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 500;
-  line-height: 0.95;
+  line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
 .text-heading {
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--text-primary);
 }
 

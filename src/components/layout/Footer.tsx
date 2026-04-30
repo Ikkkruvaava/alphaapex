@@ -7,58 +7,40 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-20 border-t border-white/5 bg-black">
-      <div className="container-main">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-          <div className="col-span-1 md:col-span-2">
-            <Logo />
-            <p className="mt-6 text-[var(--text-secondary)] text-sm max-w-sm leading-relaxed">
-              Alpha Apex Advisory Service provides strategic advisory, governance, and long-term growth solutions for enterprise organizations worldwide.
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-medium text-sm mb-6 uppercase tracking-wider">Solutions</h4>
-            <ul className="space-y-4">
-              {[
-                { name: "Strategic Advisory", href: "/strategy" },
-                { name: "Digital Transformation", href: "/strategy" },
-                { name: "Leadership & Governance", href: "/strategy" },
-                { name: "Innovation Labs", href: "/strategy" }
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-[var(--text-tertiary)] hover:text-white transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <footer className="pt-32 pb-12 border-t border-white/5 bg-black relative overflow-hidden">
+      {/* Decorative Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[150px] bg-[var(--accent)]/5 blur-[120px] rounded-full pointer-events-none" />
 
-          <div>
-            <h4 className="text-white font-medium text-sm mb-6 uppercase tracking-wider">Company</h4>
-            <ul className="space-y-4">
-              {[
-                { name: "About Us", href: "/about" },
-                { name: "Case Studies", href: "/case-studies" },
-                { name: "Contact", href: "/contact" },
-                { name: "Privacy Policy", href: "#" }
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-[var(--text-tertiary)] hover:text-white transition-colors">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      <div className="container-main relative z-10 flex flex-col items-center">
+        {/* Cinematic Brand Area */}
+        <div className="text-center mb-24 w-full flex flex-col items-center">
+          <div className="mb-8">
+            <Logo />
           </div>
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 tracking-tight">
+            Alpha <span className="italic text-[var(--text-secondary)]">Apex</span>
+          </h2>
+          <p className="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mx-auto leading-relaxed mb-12">
+            Guiding enterprise organizations to their highest point of performance through strategy, clarity, and execution discipline.
+          </p>
+          <Link href="/contact">
+            <div className="group relative inline-flex items-center justify-center cursor-pointer">
+              <div className="absolute inset-0 bg-[var(--accent)] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-500 rounded-full" />
+              <button className="relative px-8 py-4 bg-white/5 border border-white/10 rounded-full text-xs uppercase tracking-[0.3em] font-medium text-white group-hover:bg-[var(--accent)] group-hover:text-black group-hover:border-[var(--accent)] transition-all duration-500">
+                Initiate Contact
+              </button>
+            </div>
+          </Link>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[var(--text-tertiary)] text-xs uppercase tracking-widest">
+        {/* Minimal Bottom Bar */}
+        <div className="w-full pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+          <p className="text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] text-center md:text-left">
             © {currentYear} Alpha Apex Advisory Service. All rights reserved.
           </p>
-          <div className="flex gap-8">
+          
+          <div className="flex flex-wrap justify-center gap-8">
             {[
               { name: "Instagram", href: "https://www.instagram.com/alpha_apex_group?igsh=d2J6end3dmwwcW9h&utm_source=qr" },
               { name: "Facebook", href: "https://www.facebook.com/share/r/1B4TDMTLwt/?mibextid=wwXIfr" },
@@ -69,7 +51,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-widest text-[var(--text-tertiary)] hover:text-white transition-colors"
+                className="text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--text-tertiary)] hover:text-white transition-colors"
               >
                 {social.name}
               </a>

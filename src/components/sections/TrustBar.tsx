@@ -1,38 +1,36 @@
 "use client";
 
-import { motion } from "framer-motion";
+import LogoLoop from "@/components/ui/LogoLoop";
 
-const partners = [
-  { name: "Bain", icon: "B" },
-  { name: "PwC", icon: "P" },
-  { name: "EY", icon: "E" },
-  { name: "KPMG", icon: "K" },
-  { name: "Accenture", icon: "A" },
-  { name: "Deloitte", icon: "D" },
-  { name: "McKinsey", icon: "M" },
+const imageLogos = [
+  { src: "/images/sub-business-logos/1.png", alt: "Partner 1" },
+  { src: "/images/sub-business-logos/2.png", alt: "Partner 2" },
+  { src: "/images/sub-business-logos/3.png", alt: "Partner 3" },
+  { src: "/images/sub-business-logos/4.png", alt: "Partner 4" },
+  { src: "/images/sub-business-logos/5.png", alt: "Partner 5" },
 ];
 
 export function TrustBar() {
   return (
-    <section className="py-12 border-b border-white/5 bg-black overflow-hidden">
-      <div className="container-main">
-        <p className="text-center text-[10px] uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-10">
-          Trusted by Industry Leaders
+    <section className="py-16 border-b border-white/5 bg-black overflow-hidden relative">
+      <div className="container-main max-w-5xl">
+        <p className="text-center text-[10px] uppercase tracking-[0.2em] text-[var(--text-tertiary)] mb-12">
+          Trusted by leading organizations
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 grayscale opacity-40 hover:opacity-100 transition-opacity duration-500">
-          {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex items-center gap-4"
-            >
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center font-bold text-white text-sm">
-                {partner.icon}
-              </div>
-              <span className="text-xl font-semibold tracking-tight text-white">
-                {partner.name}
-              </span>
-            </div>
-          ))}
+        
+        <div className="relative w-full overflow-hidden" style={{ height: '70px' }}>
+          <LogoLoop
+            logos={imageLogos}
+            speed={60}
+            direction="left"
+            logoHeight={60}
+            gap={100}
+            hoverSpeed={15}
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#000000"
+            ariaLabel="Trusted Partners"
+          />
         </div>
       </div>
     </section>

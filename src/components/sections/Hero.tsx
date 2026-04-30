@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-28 md:pt-20 px-4">
       {/* Dynamic Aurora Background */}
       <div className="absolute inset-0 z-[1] opacity-40 mix-blend-screen">
         <SoftAurora
@@ -77,18 +77,18 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <Link href="/contact">
-            <Button size="lg" variant="primary">
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button size="lg" variant="primary" className="w-full">
               Get Started
             </Button>
           </Link>
-          <Link href="/case-studies">
-            <Button size="lg" variant="secondary">
+          <Link href="/case-studies" className="w-full sm:w-auto">
+            <Button size="lg" variant="secondary" className="w-full">
               View Case Studies
             </Button>
           </Link>
