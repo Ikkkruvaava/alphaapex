@@ -114,11 +114,11 @@ export default function ContactPage() {
                 <div>
                   <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Inquiry Focus</label>
                   <div className="relative">
-                    <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all appearance-none">
-                      <option value="strategic">Strategic Advisory</option>
-                      <option value="digital">Digital Transformation</option>
-                      <option value="governance">Leadership & Governance</option>
-                      <option value="other">General Inquiry</option>
+                    <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all appearance-none cursor-pointer">
+                      <option value="strategic" className="bg-neutral-900">Strategic Advisory</option>
+                      <option value="digital" className="bg-neutral-900">Digital Transformation</option>
+                      <option value="governance" className="bg-neutral-900">Leadership & Governance</option>
+                      <option value="other" className="bg-neutral-900">General Inquiry</option>
                     </select>
                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--text-tertiary)]">
                       ▼
