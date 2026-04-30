@@ -66,6 +66,7 @@ export default function AboutPage() {
               src="/images/hero-bg.png"
               alt="Alpha Apex Team"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
           </motion.div>

@@ -35,6 +35,7 @@ export function Hero() {
           src="/images/hero-bg.png"
           alt="Corporate Advisory"
           fill
+          sizes="100vw"
           className="object-cover opacity-20 grayscale"
           priority
         />
