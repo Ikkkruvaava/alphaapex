@@ -2,6 +2,7 @@
 
 import { Logo } from "@/components/ui/Logo";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,9 +34,12 @@ export function Footer() {
 
         {/* Minimal Bottom Bar */}
         <div className="w-full pt-8 border-t border-white/5 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
-          <p className="text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] text-center md:text-left">
-            © {currentYear} Alpha Apex Advisory Service. All rights reserved.
-          </p>
+          <div className="flex items-center gap-4">
+            <Image src="/images/fevicon/android-chrome-192x192.png" alt="Alpha Mark" width={16} height={16} className="opacity-30" />
+            <p className="text-[var(--text-muted)] text-[10px] uppercase tracking-[0.2em] text-center md:text-left">
+              © {currentYear} Alpha Apex Advisory Service. All rights reserved.
+            </p>
+          </div>
           
           <div className="flex flex-wrap justify-center gap-8">
             {[

@@ -23,6 +23,15 @@ export const metadata: Metadata = {
   title: "Alpha Apex Advisory Group | Strategic Advisory & Governance",
   description:
     "We guide organizations to their highest point of performance through strategy, clarity, and execution discipline. Strategic advisory, governance, and long-term growth solutions.",
+  icons: {
+    icon: [
+      { url: "/images/fevicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/fevicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/images/fevicon/apple-touch-icon.png",
+    shortcut: "/images/fevicon/favicon.ico",
+  },
+  manifest: "/images/fevicon/site.webmanifest",
   keywords: [
     "advisory group",
     "strategic advisory",

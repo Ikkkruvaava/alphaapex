@@ -141,7 +141,10 @@ export function Navbar() {
               </Link>
               
               <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-tertiary)]">
-                <a href="mailto:contact@alphaapex.com" className="hover:text-white transition-colors">contact@alphaapex.com</a>
+                <div className="flex items-center gap-3">
+                  <Image src="/images/fevicon/android-chrome-192x192.png" alt="Alpha Mark" width={24} height={24} className="opacity-50" />
+                  <a href="mailto:contact@alphaapex.com" className="hover:text-white transition-colors">contact@alphaapex.com</a>
+                </div>
                 <div className="flex gap-4">
                   <a href="#" className="hover:text-white transition-colors">IG</a>
                   <a href="#" className="hover:text-white transition-colors">FB</a>
