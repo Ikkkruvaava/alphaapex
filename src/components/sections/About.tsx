@@ -58,7 +58,7 @@ export function About() {
               Providing <span className="italic text-[var(--text-secondary)]">measurable transformation</span>
             </h2>
             <p className="text-body text-lg text-[var(--text-secondary)] mb-10 leading-relaxed">
-              Alpha Apex Advisory Group is the master corporate brand
+              Alpha Apex Advisory Service is the master corporate brand
               representing strategic advisory, governance, and long-term
               growth solutions. We guide organizations to their highest
               point of performance through strategy, clarity, and execution

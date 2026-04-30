@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import SplashCursor from "@/components/ui/SplashCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,7 +51,21 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false}>
+          <Navbar />
           {children}
+          <Footer />
+          <SplashCursor
+            DENSITY_DISSIPATION={3.5}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.2}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+            SHADING
+            RAINBOW_MODE={false}
+            COLOR="#C8963E"
+          />
         </ThemeProvider>
       </body>
     </html>

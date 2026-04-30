@@ -2,15 +2,15 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Process", href: "#process" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/strategy" },
+  { label: "Case Studies", href: "/case-studies" },
 ];
 
 export function Navbar() {
@@ -43,25 +43,27 @@ export function Navbar() {
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-[10px] font-bold uppercase tracking-[0.35em] text-[var(--text-secondary)] hover:text-white transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <Button
-            variant="primary"
-            size="sm"
-            className="rounded-full"
-          >
-            Get Started
-          </Button>
+          <Link href="/contact">
+            <Button
+              variant="primary"
+              size="sm"
+              className="rounded-full"
+            >
+              Get Started
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -84,22 +86,23 @@ export function Navbar() {
           >
             <div className="flex flex-col p-6 gap-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className="text-lg font-medium text-[var(--text-secondary)] hover:text-white transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <Button
-                variant="primary"
-                className="w-full"
-                onClick={() => setMobileOpen(false)}
-              >
-                Get Started
-              </Button>
+              <Link href="/contact" className="w-full" onClick={() => setMobileOpen(false)}>
+                <Button
+                  variant="primary"
+                  className="w-full"
+                >
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

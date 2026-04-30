@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import SoftAurora from "@/components/ui/SoftAurora";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -51,7 +52,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <span className="text-overline">Strategic Advisory Group</span>
+          <span className="text-overline">Strategic Advisory Service</span>
         </motion.div>
 
         <motion.h1
@@ -80,12 +81,16 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <Button size="lg" variant="primary">
-            Get Started
-          </Button>
-          <Button size="lg" variant="secondary">
-            View Case Studies
-          </Button>
+          <Link href="/contact">
+            <Button size="lg" variant="primary">
+              Get Started
+            </Button>
+          </Link>
+          <Link href="/case-studies">
+            <Button size="lg" variant="secondary">
+              View Case Studies
+            </Button>
+          </Link>
         </motion.div>
       </div>
 

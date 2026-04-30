@@ -22,7 +22,7 @@ export function FinalCTA() {
             <span className="italic text-[var(--text-secondary)]">highest point of performance?</span>
           </h2>
           <p className="text-body text-lg md:text-xl mb-12 max-w-2xl mx-auto">
-            Join the ranks of high-performing organizations that have transformed their future with Alpha Apex Advisory Group.
+            Join the ranks of high-performing organizations that have transformed their future with Alpha Apex Advisory Service.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" variant="primary">
