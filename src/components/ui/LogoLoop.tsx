@@ -158,7 +158,7 @@ export const LogoLoop = memo(
     ariaLabel = 'Partner logos',
     className,
     style
-  }) => {
+  }: any) => {
     const containerRef = useRef(null);
     const trackRef = useRef(null);
     const seqRef = useRef(null);

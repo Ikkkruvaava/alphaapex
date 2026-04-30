@@ -19,6 +19,7 @@ export function TrustBar() {
         </p>
         
         <div className="relative w-full overflow-hidden" style={{ height: '70px' }}>
+          {/* @ts-ignore */}
           <LogoLoop
             logos={imageLogos}
             speed={60}

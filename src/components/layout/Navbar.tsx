@@ -38,7 +38,7 @@ export function Navbar() {
 
   const menuVariants = {
     closed: { opacity: 0, clipPath: "inset(0 0 100% 0)" },
-    open: { opacity: 1, clipPath: "inset(0 0 0% 0)", transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } },
+    open: { opacity: 1, clipPath: "inset(0 0 0% 0)", transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
   };
 
   const linkVariants = {
@@ -46,7 +46,7 @@ export function Navbar() {
     open: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+      transition: { delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
     }),
   };
 
