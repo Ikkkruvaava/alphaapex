@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
