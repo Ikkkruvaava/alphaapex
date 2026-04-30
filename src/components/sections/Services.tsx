@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import {
   TrendingUp,
   Cpu,
@@ -82,6 +83,7 @@ export function Services() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
+            <Link href="/strategy" className="flex flex-col h-full w-full">
               {service.image && (
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -118,6 +120,7 @@ export function Services() {
                   Learn More <ArrowUpRight size={14} />
                 </div>
               </div>
+            </Link>
             </motion.div>
           ))}
         </div>

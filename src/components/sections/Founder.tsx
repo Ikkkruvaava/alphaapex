@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export function Founder() {
   return (
@@ -56,9 +57,11 @@ export function Founder() {
               With deep expertise in transformative business strategies, Anees has shaped Alpha Group into a beacon of high-end consulting, characterized by absolute clarity, long-term partnerships, and measurable, high-impact results.
             </p>
             
-            <Button variant="secondary">
-              Connect on LinkedIn
-            </Button>
+            <Link href="/about">
+              <Button variant="secondary">
+                Connect on LinkedIn
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

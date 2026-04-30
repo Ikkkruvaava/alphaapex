@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export function FinalCTA() {
   return (
@@ -25,12 +26,16 @@ export function FinalCTA() {
             Join the ranks of high-performing organizations that have transformed their future with Alpha Apex Advisory Service.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" variant="primary">
-              Schedule a Consultation
-            </Button>
-            <Button size="lg" variant="secondary">
-              View Our Strategy
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" variant="primary">
+                Schedule a Consultation
+              </Button>
+            </Link>
+            <Link href="/strategy">
+              <Button size="lg" variant="secondary">
+                View Our Strategy
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

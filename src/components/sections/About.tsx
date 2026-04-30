@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 const values = [
   "Strategic clarity in every engagement",
@@ -86,9 +87,11 @@ export function About() {
               ))}
             </ul>
             
-            <Button variant="secondary">
-              Learn More About Us
-            </Button>
+            <Link href="/about">
+              <Button variant="secondary">
+                Learn More About Us
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

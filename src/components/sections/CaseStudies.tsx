@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
+import Link from "next/link";
 
 const caseStudies = [
   {
@@ -62,6 +63,7 @@ export function CaseStudies() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
+            <Link href="/case-studies" className="block h-full">
               <div className="relative h-56 overflow-hidden">
                 <Image
                   src={study.image}
@@ -99,6 +101,7 @@ export function CaseStudies() {
                   ))}
                 </div>
               </div>
+            </Link>
             </motion.div>
           ))}
         </div>

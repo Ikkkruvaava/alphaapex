@@ -23,91 +23,119 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8"
+          className="mb-8 flex flex-col items-center text-center"
         >
-          <span className="text-overline">Get In Touch</span>
+          <span className="text-overline mb-6">Get In Touch</span>
+          <h1 className="text-4xl md:text-6xl font-serif text-white max-w-4xl leading-tight">
+            Begin your journey to <span className="italic text-[var(--accent)]">the top</span>
+          </h1>
         </motion.div>
 
-        <motion.h1
-          className="text-4xl md:text-6xl font-serif text-white mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          Begin your journey to <span className="italic text-[var(--accent)]">the top</span>
-        </motion.h1>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-20">
+          
+          {/* Left Column - Contact Info (Bento Style) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-12"
+            className="lg:col-span-5 space-y-6"
           >
-            <div>
-              <h2 className="text-2xl text-white mb-4 font-serif">Global Headquarters</h2>
-              <p className="text-[var(--text-secondary)] mb-2">Alpha Apex Advisory Service</p>
-              <p className="text-[var(--text-tertiary)]">Doha, Qatar</p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl text-white mb-4 font-serif">Direct Contact</h2>
-              <div className="space-y-4">
-                <a href="https://wa.me/97470079333" target="_blank" rel="noreferrer" className="block text-[var(--text-secondary)] hover:text-white transition-colors">
-                  WhatsApp: +974 7007 9333
-                </a>
-                <a href="mailto:contact@alphaapex.com" className="block text-[var(--text-secondary)] hover:text-white transition-colors">
-                  Email: contact@alphaapex.com
-                </a>
+            {/* HQ Card */}
+            <div className="relative bg-white/[0.02] border border-white/5 p-8 rounded-3xl overflow-hidden group hover:border-white/10 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/0 via-transparent to-[var(--accent)]/0 group-hover:from-[var(--accent)]/10 transition-all duration-500 z-0" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full bg-[var(--accent)]/10 flex items-center justify-center mb-6">
+                  <span className="text-[var(--accent)] font-serif text-xl">HQ</span>
+                </div>
+                <h2 className="text-2xl text-white mb-2 font-serif group-hover:text-[var(--accent)] transition-colors">Global Headquarters</h2>
+                <p className="text-[var(--text-secondary)] mb-1">Alpha Apex Advisory Service</p>
+                <p className="text-[var(--text-tertiary)]">Doha, Qatar</p>
               </div>
             </div>
 
-            <div>
-              <h2 className="text-2xl text-white mb-4 font-serif">Social Connect</h2>
-              <div className="flex flex-col space-y-4">
-                <a href="https://www.instagram.com/alpha_apex_group?igsh=d2J6end3dmwwcW9h&utm_source=qr" target="_blank" rel="noreferrer" className="text-[var(--text-secondary)] hover:text-white transition-colors flex items-center gap-3">
-                  <span className="w-8 h-px bg-white/20" /> Instagram
-                </a>
-                <a href="https://www.facebook.com/share/r/1B4TDMTLwt/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="text-[var(--text-secondary)] hover:text-white transition-colors flex items-center gap-3">
-                  <span className="w-8 h-px bg-white/20" /> Facebook
-                </a>
-              </div>
+            {/* Direct Connect Card */}
+            <div className="relative bg-white/[0.02] border border-white/5 p-8 rounded-3xl overflow-hidden group hover:border-white/10 transition-all duration-500">
+               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-transparent to-[var(--accent)]/0 group-hover:from-blue-500/10 transition-all duration-500 z-0" />
+               <div className="relative z-10 flex flex-col gap-6">
+                 <div>
+                   <h2 className="text-xl text-white mb-4 font-serif">Direct Connect</h2>
+                   <div className="space-y-3">
+                     <a href="https://wa.me/97470079333" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-white transition-colors group/link">
+                       <span className="w-8 h-px bg-white/20 group-hover/link:bg-[var(--accent)] transition-colors" />
+                       WhatsApp: +974 7007 9333
+                     </a>
+                     <a href="mailto:contact@alphaapex.com" className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-white transition-colors group/link">
+                       <span className="w-8 h-px bg-white/20 group-hover/link:bg-blue-400 transition-colors" />
+                       contact@alphaapex.com
+                     </a>
+                   </div>
+                 </div>
+
+                 <div className="pt-6 border-t border-white/5">
+                   <h2 className="text-xl text-white mb-4 font-serif">Social Reach</h2>
+                   <div className="flex gap-4">
+                     <a href="https://www.instagram.com/alpha_apex_group?igsh=d2J6end3dmwwcW9h&utm_source=qr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all">
+                       IG
+                     </a>
+                     <a href="https://www.facebook.com/share/r/1B4TDMTLwt/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[var(--text-secondary)] hover:text-white hover:border-blue-500 hover:bg-blue-500/10 transition-all">
+                       FB
+                     </a>
+                   </div>
+                 </div>
+               </div>
             </div>
           </motion.div>
 
+          {/* Right Column - Premium Form */}
           <motion.div
-            className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm"
+            className="lg:col-span-7"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-xl text-white mb-6">Request a Consultation</h3>
-            <form className="space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[var(--text-tertiary)] mb-2">Full Name</label>
-                <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--accent)] transition-colors" placeholder="John Doe" />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[var(--text-tertiary)] mb-2">Corporate Email</label>
-                <input type="email" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--accent)] transition-colors" placeholder="john@company.com" />
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[var(--text-tertiary)] mb-2">Inquiry Type</label>
-                <select className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--accent)] transition-colors appearance-none">
-                  <option value="strategic">Strategic Advisory</option>
-                  <option value="digital">Digital Transformation</option>
-                  <option value="governance">Leadership & Governance</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-[var(--text-tertiary)] mb-2">Message</label>
-                <textarea rows={4} className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--accent)] transition-colors resize-none" placeholder="How can we help your business accelerate?" />
-              </div>
-              <Button variant="primary" className="w-full py-4">
-                Submit Inquiry
-              </Button>
-            </form>
+            <div className="relative bg-white/[0.01] border border-white/5 p-10 lg:p-12 rounded-3xl backdrop-blur-md overflow-hidden h-full flex flex-col justify-center">
+              {/* Form glowing accent */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/5 rounded-full blur-[80px] pointer-events-none" />
+              
+              <h3 className="text-2xl font-serif text-white mb-8 relative z-10">Request a Private Consultation</h3>
+              
+              <form className="space-y-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Full Name</label>
+                    <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all" placeholder="Enter your name" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Corporate Email</label>
+                    <input type="email" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all" placeholder="name@company.com" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Inquiry Focus</label>
+                  <div className="relative">
+                    <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all appearance-none">
+                      <option value="strategic">Strategic Advisory</option>
+                      <option value="digital">Digital Transformation</option>
+                      <option value="governance">Leadership & Governance</option>
+                      <option value="other">General Inquiry</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--text-tertiary)]">
+                      ▼
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Message</label>
+                  <textarea rows={5} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all resize-none" placeholder="Describe your operational objectives or challenges..." />
+                </div>
+                
+                <Button variant="primary" className="w-full py-5 text-sm tracking-widest rounded-xl hover:shadow-[0_0_30px_rgba(200,150,62,0.3)] transition-shadow">
+                  Submit Executive Inquiry
+                </Button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
