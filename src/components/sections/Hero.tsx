@@ -30,7 +30,7 @@ export function Hero() {
       </div>
 
       {/* Background Image with heavy dark overlay */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.png"
           alt="Corporate Advisory"
@@ -40,7 +40,7 @@ export function Hero() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
-      </div>
+      </div> */}
 
       {/* Background glow effects */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />

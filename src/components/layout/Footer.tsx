@@ -15,12 +15,9 @@ export function Footer() {
       <div className="container-main relative z-10 flex flex-col items-center">
         {/* Cinematic Brand Area */}
         <div className="text-center mb-24 w-full flex flex-col items-center">
-          <div className="mb-8">
-            <Logo />
+          <div className="mb-12 scale-110 md:scale-125">
+            <Logo height={80} />
           </div>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 tracking-tight">
-            Alpha <span className="italic text-[var(--text-secondary)]">Apex</span>
-          </h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base max-w-lg mx-auto leading-relaxed mb-12">
             Guiding enterprise organizations to their highest point of performance through strategy, clarity, and execution discipline.
           </p>

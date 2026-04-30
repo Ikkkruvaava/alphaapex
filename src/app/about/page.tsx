@@ -107,6 +107,80 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {/* Global Ecosystem Section */}
+        <div className="mt-32 border-t border-white/5 pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-overline mb-4 block">The Alpha Group</span>
+            <h2 className="text-3xl md:text-5xl font-serif text-white mb-6">
+              Our Global Ecosystem
+            </h2>
+            <p className="text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
+              Alpha Apex Group operates a diversified portfolio of specialized academies, high-end logistics networks, and wellness institutions across the globe.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { 
+                name: "Alpha Global Logistics Academy", 
+                desc: "Empowering the next generation of logistics professionals through world-class training and certification.",
+                link: "https://www.instagram.com/alphagloballogisticsacademy?igsh=MTV0M25tb3psNWg2YQ%3D%3D&utm_source=qr",
+                tag: "Education"
+              },
+              { 
+                name: "Alpha Academy Philippines", 
+                desc: "A premier institution delivering specialized skills and career advancement opportunities in the Philippines.",
+                link: "https://www.instagram.com/alpha_academy_philippines?igsh=NzczZDRpNjlpd3hm",
+                tag: "Education"
+              },
+              { 
+                name: "Alpha Logistics W.L.L", 
+                desc: "Seamless, high-efficiency global logistics and supply chain management solutions tailored for modern enterprise.",
+                link: "https://www.instagram.com/alpha_logistics.wll?igsh=ODR6MjFiNWkzeTUx",
+                tag: "Logistics"
+              },
+              { 
+                name: "Alpha Physio Malappuram", 
+                desc: "Advanced physiotherapy and wellness services dedicated to performance recovery and holistic health.",
+                link: "https://www.instagram.com/alphaphysio_malappuram?igsh=eHB5aGp3anU0MzEw&utm_source=qr",
+                tag: "Healthcare"
+              }
+            ].map((sub, idx) => (
+              <motion.a 
+                href={sub.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={sub.name}
+                className="relative bg-white/[0.01] border border-white/5 p-8 rounded-3xl overflow-hidden group hover:border-[var(--accent)]/30 hover:bg-white/[0.03] transition-all duration-500 block"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + (idx * 0.1) }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/0 via-transparent to-[var(--accent)]/0 group-hover:from-[var(--accent)]/5 transition-all duration-500 z-0" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex justify-between items-start mb-12">
+                    <span className="text-[10px] uppercase tracking-widest text-[var(--accent)] border border-[var(--accent)]/20 px-3 py-1 rounded-full bg-[var(--accent)]/10">
+                      {sub.tag}
+                    </span>
+                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:text-[var(--accent)] group-hover:border-[var(--accent)]/50 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-300">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl md:text-2xl text-white mb-3 font-serif group-hover:text-[var(--accent)] transition-colors">{sub.name}</h3>
+                  <p className="text-[var(--text-tertiary)] text-sm leading-relaxed">{sub.desc}</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+
       </div>
     </main>
   );

@@ -24,6 +24,10 @@ export default function SplashCursor({
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches) {
+      return; // Disable entirely on mobile devices
+    }
+
     console.log("SplashCursor mounting...");
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -1068,7 +1072,7 @@ export default function SplashCursor({
   ]);
 
   return (
-    <div className="fixed top-0 left-0 z-[9999] pointer-events-none w-full h-full">
+    <div className="fixed top-0 left-0 z-[9999] pointer-events-none w-full h-full hidden md:block">
       <canvas ref={canvasRef} id="fluid" className="w-screen h-screen block"></canvas>
     </div>
   );
