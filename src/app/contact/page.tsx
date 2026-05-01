@@ -120,9 +120,9 @@ export default function ContactPage() {
                       <span className="w-8 h-px bg-white/20 group-hover/link:bg-[var(--accent)] transition-colors" />
                       WhatsApp: +974 7007 9333
                     </a>
-                    <a href="mailto:contact@alphaapex.com" className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-white transition-colors group/link">
+                    <a href="mailto:apexgroupalpha@gmail.com" className="flex items-center gap-3 text-[var(--text-secondary)] hover:text-white transition-colors group/link">
                       <span className="w-8 h-px bg-white/20 group-hover/link:bg-blue-400 transition-colors" />
-                      contact@alphaapex.com
+                      apexgroupalpha@gmail.com
                     </a>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     </div>
                     <h4 className="text-2xl text-white font-serif mb-2">Inquiry Received</h4>
                     <p className="text-[var(--text-secondary)]">An executive will contact you shortly.</p>
-                    <button 
+                    <button
                       onClick={() => setStatus("idle")}
                       className="mt-8 text-[var(--accent)] hover:underline"
                     >
@@ -190,26 +190,26 @@ export default function ContactPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Full Name</label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           name="name"
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all" 
-                          placeholder="Enter your name" 
+                          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all"
+                          placeholder="Enter your name"
                         />
                       </div>
                       <div>
                         <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Corporate Email</label>
-                        <input 
-                          type="email" 
+                        <input
+                          type="email"
                           name="email"
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all" 
-                          placeholder="name@company.com" 
+                          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all"
+                          placeholder="name@company.com"
                         />
                       </div>
                     </div>
@@ -217,7 +217,7 @@ export default function ContactPage() {
                     <div>
                       <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Inquiry Focus</label>
                       <div className="relative">
-                        <select 
+                        <select
                           name="focus"
                           value={formData.focus}
                           onChange={handleChange}
@@ -237,14 +237,14 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-[10px] uppercase tracking-widest text-[var(--text-tertiary)] mb-2">Message</label>
-                      <textarea 
+                      <textarea
                         name="message"
                         required
-                        rows={5} 
+                        rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all resize-none" 
-                        placeholder="Describe your operational objectives or challenges..." 
+                        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-[var(--accent)] focus:bg-white/5 transition-all resize-none"
+                        placeholder="Describe your operational objectives or challenges..."
                       />
                     </div>
 
@@ -252,10 +252,10 @@ export default function ContactPage() {
                       <p className="text-red-400 text-sm">{errorMessage}</p>
                     )}
 
-                    <Button 
+                    <Button
                       type="submit"
                       disabled={status === "submitting"}
-                      variant="primary" 
+                      variant="primary"
                       className="w-full py-5 text-sm tracking-widest rounded-xl hover:shadow-[0_0_30px_rgba(200,150,62,0.3)] transition-shadow disabled:opacity-50"
                     >
                       {status === "submitting" ? "Processing..." : "Submit Executive Inquiry"}

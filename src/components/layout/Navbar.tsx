@@ -54,12 +54,11 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[var(--z-sticky)]">
       {/* Dynamic Navbar Background (separated to prevent fixed clipping) */}
-      <div 
-        className={`absolute inset-0 pointer-events-none transition-all duration-300 ${
-          scrolled && !mobileOpen 
-            ? "bg-black/80 backdrop-blur-xl border-b border-white/5" 
+      <div
+        className={`absolute inset-0 pointer-events-none transition-all duration-300 ${scrolled && !mobileOpen
+            ? "bg-black/80 backdrop-blur-xl border-b border-white/5"
             : "bg-transparent border-b border-transparent"
-        }`}
+          }`}
       />
 
       <div className="container-main relative z-50 flex items-center justify-between h-20">
@@ -128,8 +127,8 @@ export function Navbar() {
                 </motion.div>
               ))}
             </div>
-            
-            <motion.div 
+
+            <motion.div
               className="mt-16 flex flex-col gap-8 border-t border-white/10 pt-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -140,11 +139,11 @@ export function Navbar() {
                   Schedule Consultation
                 </Button>
               </Link>
-              
+
               <div className="flex justify-between items-center text-[10px] uppercase tracking-widest text-[var(--text-tertiary)]">
                 <div className="flex items-center gap-3">
                   <Image src="/images/fevicon/android-chrome-192x192.png" alt="Alpha Mark" width={24} height={24} className="opacity-50" />
-                  <a href="mailto:contact@alphaapex.com" className="hover:text-white transition-colors">contact@alphaapex.com</a>
+                  <a href="mailto:apexgroupalpha@gmail.com" className="hover:text-white transition-colors">apexgroupalpha@gmail.com</a>
                 </div>
                 <div className="flex gap-4">
                   <a href="#" className="hover:text-white transition-colors">IG</a>
