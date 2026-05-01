@@ -13,7 +13,7 @@ const caseStudies = [
     category: "Strategic Advisory",
     metrics: "+40% Efficiency | -$2M Costs",
     description: "Restructured the entire supply chain architecture, mitigating global disruptions and increasing cross-border logistical efficiency by 40%.",
-    image: "/images/hero-bg.png"
+    image: "/images/3.png"
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const caseStudies = [
     category: "Digital Transformation",
     metrics: "3x Processing Speed",
     description: "Implemented custom AI-driven risk assessment models, replacing legacy systems and transforming the digital banking experience.",
-    image: "/images/hero-bg.png"
+    image: "/images/2.png"
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const caseStudies = [
     category: "Leadership & Governance",
     metrics: "100% Retention in Top Tier",
     description: "Developed a new governance framework and leadership pipeline during a high-stakes merger, ensuring operational continuity.",
-    image: "/images/hero-bg.png"
+    image: "/images/4.png"
   }
 ];
 
